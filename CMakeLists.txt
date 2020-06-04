@@ -43,5 +43,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Trivial example using gtest and gmock
-target_link_libraries(GEN_05_Refactoring_CPP gtest gmock_main)
-add_test(NAME example_test COMMAND GEN_05_Refactoring_CPP)
+add_executable(testfield example.cpp CustomerTest.cpp)
+target_link_libraries(testfield gtest gmock_main)
+add_test(NAME testfield_test COMMAND testfield)
