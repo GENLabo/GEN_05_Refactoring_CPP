@@ -3,10 +3,18 @@
 #include <vector>
 #include "Customer.h"
 
+#include "gtest/gtest.h"
+#include "gmock/gmock.h"
+
 using std::ostringstream;
 using std::vector;
 
 using namespace std;
+
+TEST(Dummy, foobar)
+{
+    EXPECT_EQ(1, 1);
+}
 
 string Customer::statement()
 {
