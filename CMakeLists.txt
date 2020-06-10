@@ -1,18 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
-project(GEN_05_Refactoring_CPP)
-
+project(GEN_CPP_Refactoring)
 set(CMAKE_CXX_STANDARD 14)
 
-include_directories(.)
-
-add_executable(GEN_05_Refactoring_CPP
-        Customer.cpp
-        Customer.h
-        main.cpp
-        Movie.cpp
-        Movie.h
-        Rental.h)
-include(CTest)
+add_executable(GEN_CPP_Refactoring main.cpp
+        Movie.cpp Customer.cpp Rental.h)
 
 if (CMAKE_VERSION VERSION_LESS 3.2)
     set(UPDATE_DISCONNECTED_IF_AVAILABLE "")
@@ -42,7 +33,7 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
             "${gmock_SOURCE_DIR}/include")
 endif()
 
-# Trivial example using gtest and gmock
-add_executable(testfield example.cpp CustomerTest.cpp)
-target_link_libraries(testfield gtest gmock_main)
-add_test(NAME testfield_test COMMAND testfield)
+add_executable(AllTests tests/CustomerTest.cpp
+        Customer.cpp Movie.cpp Rental.h)
+target_link_libraries(AllTests gtest gmock_main)
+add_test(NAME All_Tests COMMAND AllTests)

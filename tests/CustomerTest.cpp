@@ -3,12 +3,11 @@
 //
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
-#include "Customer.h"
+#include "../Customer.h"
 
 
 TEST(Customer, statement)
 {
-    //EXPECT_EQ(1, 1);
     Customer customer("René");
     customer.addRental( Rental( Movie("Karate Kid"), 7));
     customer.addRental( Rental( Movie( "Avengers: Endgame", Movie::NEW_RELEASE ), 5));
