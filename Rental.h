@@ -10,7 +10,7 @@ public:
     int getDaysRented() const;
     const Movie& getMovie() const;
 
-    int updateFrequentRenterPoint(int currentPoints) {
+    int updateFrequentRenterPoint(int currentPoints) const {
         // add frequent renter points
         ++currentPoints;
 

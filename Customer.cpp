@@ -16,7 +16,7 @@ string Customer::statement()
     int frequentRenterPoints = 0;
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
-    
+
     for (Rental rental : _rentals) {
         double thisAmount = 0;
 
