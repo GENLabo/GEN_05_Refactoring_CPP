@@ -9,11 +9,16 @@
 
 class MovieStateChildren : public MovieState {
 public:
+
     double getPrice(int daysRented) override {
         double price = 1.5;
         if (daysRented > 3 )
             price += (daysRented - 3 ) * 1.5;
         return price;
+    }
+
+    int getRenterPoints(int daysRented) override {
+        return 0;
     }
 };
 

@@ -12,6 +12,11 @@ public:
     double getPrice(int daysRented) override {
         return daysRented * 3;
     }
+
+    int getRenterPoints(int daysRented) override {
+        // add bonus for a two day new release rental
+        return daysRented > 1 ? 1 : 0;
+    }
 };
 
 #endif //GEN_CPP_REFACTORING_MOVIESTATERELEASE_HPP

@@ -2,13 +2,29 @@
 #include <sstream>
 #include <vector>
 #include "Customer.h"
+#include "MovieStateChildren.hpp"
+#include "MovieStateRelease.hpp"
 
+#include "gtest/gtest.h"
+#include "gmock/gmock.h"
 
 using std::ostringstream;
 using std::vector;
 
 using namespace std;
 
+TEST(Customer, statement) {
+    Customer customer("René");
+    customer.addRental(new Rental(new Movie("Karate Kid", new MovieStateRegular()), 7));
+    customer.addRental(new Rental(new Movie( "Avengers: Endgame", new MovieStateRelease()), 5));
+    customer.addRental(new Rental(new Movie("Snow White", new MovieStateChildren()), 3 ));
+    EXPECT_EQ(customer.statement(), "Rental Record for René\n"
+                                    "\tKarate Kid\t9.5\n"
+                                    "\tAvengers: Endgame\t15\n"
+                                    "\tSnow White\t1.5\n"
+                                    "Amount owed is 26\n"
+                                    "You earned 4 frequent renter points");
+}
 
 string Customer::statement()
 {
@@ -17,30 +33,16 @@ string Customer::statement()
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
 
-    for (const Rental& rental : _rentals) {
+    for (Rental* rental : _rentals) {
         double thisAmount = 0;
 
         // determine amounts for each line
-        switch ( rental.getMovie().getPriceCode() ) {
-            case Movie::REGULAR:
-                thisAmount += 2;
-                if ( rental.getDaysRented() > 2 )
-                    thisAmount += ( rental.getDaysRented() - 2 ) * 1.5 ;
-                break;
-            case Movie::NEW_RELEASE:
-                thisAmount += rental.getDaysRented() * 3;
-                break;
-            case Movie::CHILDRENS:
-                thisAmount += 1.5;
-                if ( rental.getDaysRented() > 3 )
-                    thisAmount += ( rental.getDaysRented() - 3 ) * 1.5;
-                break;
-        }
+        thisAmount += rental->getMovie()->getPrice(rental->getDaysRented());
 
-        frequentRenterPoints = rental.updateFrequentRenterPoint(frequentRenterPoints);
+        frequentRenterPoints = rental->updateFrequentRenterPoint(frequentRenterPoints);
 
         // show figures for this rental
-        result << "\t" << rental.getMovie().getTitle() << "\t"
+        result << "\t" << rental->getMovie()->getTitle() << "\t"
                << thisAmount << "\n";
         totalAmount += thisAmount;
     }

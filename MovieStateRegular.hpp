@@ -16,6 +16,10 @@ public:
             price += (daysRented - 2) * 1.5;
         return price;
     }
+
+    int getRenterPoints(int daysRented) override {
+        return 0;
+    }
 };
 
 #endif //GEN_CPP_REFACTORING_MOVIESTATEREGULAR_HPP

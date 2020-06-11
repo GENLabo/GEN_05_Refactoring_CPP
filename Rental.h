@@ -2,39 +2,46 @@
 #ifndef RENTAL_H
 #define RENTAL_H
 #include "Movie.h"
+#include "MovieStateRelease.hpp"
 
 class Rental {
 public:
-    Rental( const Movie& movie, int daysRented );
+    Rental(Movie* movie, int daysRented );
+
+    virtual ~Rental();
 
     int getDaysRented() const;
-    const Movie& getMovie() const;
+    const Movie* getMovie() const;
 
     int updateFrequentRenterPoint(int currentPoints) const {
         // add frequent renter points
         ++currentPoints;
 
-        // add bonus for a two day new release rental
-        if ((getMovie().getPriceCode() == Movie::NEW_RELEASE)
-             && getDaysRented() > 1 ) currentPoints++;
+        // add eventual bonus
+        currentPoints += getMovie()->getRenterPoints(getDaysRented());
 
         return currentPoints;
     }
 
 private:
-    Movie _movie;
+    Movie* _movie;
     int _daysRented;
 };
 
 inline Rental::
-Rental( const Movie& movie, int daysRented )
+Rental(Movie* movie, int daysRented )
         : _movie( movie )
         , _daysRented( daysRented ) {}
+
+inline Rental::
+~Rental() {
+    delete _movie;
+}
 
 inline int Rental::
 getDaysRented() const { return _daysRented; }
 
-inline const Movie& Rental::
+inline const Movie* Rental::
 getMovie() const { return _movie; }
 
 #endif // RENTAL_H
