@@ -17,7 +17,7 @@ string Customer::statement()
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
 
-    for (Rental rental : _rentals) {
+    for (const Rental& rental : _rentals) {
         double thisAmount = 0;
 
         // determine amounts for each line
