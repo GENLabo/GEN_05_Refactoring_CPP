@@ -10,7 +10,6 @@ class MovieState {
 public:
     virtual double getPrice(int daysRented) = 0;
     virtual int getRenterPoints(int daysRented) = 0;
-    virtual ~MovieState() {}
 };
 
 #endif //GEN_CPP_REFACTORING_MOVIESTATE_HPP
