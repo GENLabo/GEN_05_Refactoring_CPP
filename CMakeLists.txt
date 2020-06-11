@@ -3,7 +3,7 @@ project(GEN_CPP_Refactoring)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(GEN_CPP_Refactoring main.cpp
-        Movie.cpp Customer.cpp Rental.h)
+        Movie.cpp Customer.cpp Rental.h MovieState.hpp MovieStateRelease.hpp MovieStateChildren.hpp MovieStateRegular.hpp)
 
 if (CMAKE_VERSION VERSION_LESS 3.2)
     set(UPDATE_DISCONNECTED_IF_AVAILABLE "")
