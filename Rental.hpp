@@ -1,7 +1,7 @@
 // Rental.h
 #ifndef RENTAL_H
 #define RENTAL_H
-#include "Movie.h"
+#include "Movie.hpp"
 #include "MovieStateRelease.hpp"
 
 class Rental {

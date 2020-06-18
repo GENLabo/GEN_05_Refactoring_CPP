@@ -3,7 +3,7 @@
 #define CUSTOMER_H
 #include <string>
 #include <vector>
-#include "Rental.h"
+#include "Rental.hpp"
 
 class Customer {
 public:

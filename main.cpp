@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "Customer.h"
+#include "Customer.hpp"
 #include "MovieStateRegular.hpp"
 #include "MovieStateChildren.hpp"
 #include "MovieStateRelease.hpp"
