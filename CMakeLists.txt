@@ -2,8 +2,13 @@ cmake_minimum_required(VERSION 3.14)
 project(GEN_CPP_Refactoring)
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(GEN_CPP_Refactoring main.cpp
-        Customer.cpp Rental.hpp MovieState.hpp MovieStateRelease.hpp MovieStateChildren.hpp MovieStateRegular.hpp)
+add_executable(GEN_CPP_Refactoring
+        Customer.cpp
+        Customer.hpp
+        main.cpp
+        Movie.hpp
+        MovieState.hpp
+        Rental.hpp)
 
 if (CMAKE_VERSION VERSION_LESS 3.2)
     set(UPDATE_DISCONNECTED_IF_AVAILABLE "")
@@ -33,7 +38,9 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
             "${gmock_SOURCE_DIR}/include")
 endif()
 
-add_executable(AllTests tests/CustomerTest.cpp tests/RentalTest.cpp
-        Customer.cpp Rental.hpp MovieStateChildren.hpp)
+add_executable(AllTests
+        tests/CustomerTest.cpp
+        Customer.cpp
+        Customer.hpp
+        )
 target_link_libraries(AllTests gtest gmock_main)
-add_test(NAME All_Tests COMMAND AllTests)

@@ -3,13 +3,16 @@
 #define MOVIE_H
 #include <string>
 #include <iostream>
-#include "MovieStateRegular.hpp"
+
+#include "MovieState.hpp"
 
 class Movie {
 public:
     explicit Movie( const std::string& title, MovieState* state);
 
-    virtual ~Movie();
+    virtual ~Movie() {
+        delete _state;
+    }
 
     std::string getTitle() const;
     double getPrice(int daysRented) const {
@@ -35,8 +38,6 @@ Movie( const std::string& title, MovieState* state)
 inline std::string Movie::
 getTitle() const { return _title; }
 
-Movie::~Movie() {
-    delete _state;
-}
+
 
 #endif // MOVIE_H

@@ -3,7 +3,9 @@
 #define CUSTOMER_H
 #include <string>
 #include <vector>
+
 #include "Rental.hpp"
+
 
 class Customer {
 public:
