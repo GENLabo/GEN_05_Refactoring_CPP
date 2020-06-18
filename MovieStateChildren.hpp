@@ -4,6 +4,8 @@
 
 #ifndef GEN_CPP_REFACTORING_MOVIESTATECHILDREN_HPP
 #define GEN_CPP_REFACTORING_MOVIESTATECHILDREN_HPP
+#include "gtest/gtest.h"
+#include "gmock/gmock.h"
 
 #include "MovieState.hpp"
 
@@ -21,5 +23,10 @@ public:
         return 0;
     }
 };
+
+TEST(MovieStateChildren, getPrice) {
+    Movie movie("Avatar", new MovieStateChildren);
+    EXPECT_EQ(movie.getPrice(10), 12);
+}
 
 #endif //GEN_CPP_REFACTORING_MOVIESTATECHILDREN_HPP

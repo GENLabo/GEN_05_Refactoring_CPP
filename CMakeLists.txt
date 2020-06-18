@@ -34,6 +34,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 add_executable(AllTests tests/CustomerTest.cpp tests/RentalTest.cpp
-        Customer.cpp Rental.hpp)
+        Customer.cpp Rental.hpp MovieStateChildren.hpp)
 target_link_libraries(AllTests gtest gmock_main)
 add_test(NAME All_Tests COMMAND AllTests)
