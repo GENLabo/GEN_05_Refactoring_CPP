@@ -28,7 +28,6 @@ public:
 
 private:
     std::string _title;
-    int _priceCode;
     MovieState* _state;
 };
 
