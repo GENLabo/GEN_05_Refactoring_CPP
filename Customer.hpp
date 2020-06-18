@@ -1,4 +1,7 @@
-// Customer.h
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
+
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include <string>

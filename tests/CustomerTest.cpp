@@ -1,6 +1,6 @@
-//
-// Created by loic on 6/4/20.
-//
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
 
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"

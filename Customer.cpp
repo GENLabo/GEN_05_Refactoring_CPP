@@ -1,4 +1,7 @@
-// Customer.cpp
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
+
 #include <sstream>
 #include "Customer.hpp"
 

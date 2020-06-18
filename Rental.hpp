@@ -1,4 +1,7 @@
-// Rental.h
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
+
 #ifndef RENTAL_H
 #define RENTAL_H
 

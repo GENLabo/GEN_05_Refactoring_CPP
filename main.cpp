@@ -1,3 +1,7 @@
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
+
 #include <iostream>
 #include "Customer.hpp"
 

@@ -1,4 +1,7 @@
-// Movie.h
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
+
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <string>

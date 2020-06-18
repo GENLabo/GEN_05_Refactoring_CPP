@@ -1,6 +1,6 @@
-//
-// Created by robin on 11.06.20.
-//
+/*
+ * Authors: Robin Demarta, Loïc Dessaules & Vitor Vaz Afonso
+ */
 
 #ifndef GEN_CPP_REFACTORING_MOVIESTATE_HPP
 #define GEN_CPP_REFACTORING_MOVIESTATE_HPP
