@@ -42,5 +42,5 @@ add_executable(AllTests
         tests/CustomerTest.cpp
         Customer.cpp
         Customer.hpp
-        tests/MovieTest.cpp)
+        tests/MovieTest.cpp tests/RentalTest.cpp)
 target_link_libraries(AllTests gtest gmock_main)
