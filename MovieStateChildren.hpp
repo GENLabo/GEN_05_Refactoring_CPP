@@ -29,4 +29,9 @@ TEST(MovieStateChildren, getPrice) {
     EXPECT_EQ(movie.getPrice(10), 12);
 }
 
+TEST(MovieStateChildren, getRenterPoints) {
+    Movie movie("Avatar 2", new MovieStateChildren);
+    EXPECT_EQ(movie.getRenterPoints(50), 0);
+}
+
 #endif //GEN_CPP_REFACTORING_MOVIESTATECHILDREN_HPP
