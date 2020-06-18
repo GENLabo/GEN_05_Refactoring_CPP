@@ -14,11 +14,8 @@ public:
     const Movie* getMovie() const;
 
     int updateFrequentRenterPoint(int currentPoints) const {
-        // add frequent renter points
-        ++currentPoints;
-
-        // add eventual bonus
-        currentPoints += getMovie()->getRenterPoints(getDaysRented());
+        // add frequent renter points + eventual bonus
+        currentPoints += 1 + getMovie()->getRenterPoints(getDaysRented());
 
         return currentPoints;
     }
